@@ -1,0 +1,8 @@
+langchain
+boto3
+faiss-cpu
+groq
+streamlit
+python-dotenv
+tiktoken
+openai

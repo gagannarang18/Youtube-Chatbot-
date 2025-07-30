@@ -1,0 +1,42 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+.venv/
+env/
+venv/
+ytchatbot/
+
+# Secret environment/config files
+.env
+*.env
+*.toml
+
+# Streamlit config
+.streamlit/secrets.toml
+
+# IDE files
+.vscode/
+.idea/
+
+# macOS/Linux/Windows system files
+.DS_Store
+Thumbs.db
+
+# Log files
+*.log
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Python egg info
+*.egg-info/
+
+# Build artifacts
+build/
+dist/
+
+# VSCode history (optional)
+.history/
