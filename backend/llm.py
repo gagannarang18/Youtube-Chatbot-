@@ -1,4 +1,4 @@
-from langchain.chat_models import ChatGroq
+from langchain_groq import ChatGroq
 import streamlit as st
 
 def get_llm():
