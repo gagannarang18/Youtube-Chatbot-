@@ -2,7 +2,7 @@ import boto3
 import json
 import streamlit as st
 
-class BedrockEmbedding:
+class BedrockEmbeddingWrapper:
     def __init__(self):
         self.client = boto3.client(
             service_name="bedrock-runtime",
@@ -12,10 +12,13 @@ class BedrockEmbedding:
         )
         self.model_id = "amazon.titan-embed-text-v1"
 
-    def embed(self, texts):
-        if isinstance(texts, str):
-            texts = [texts]
+    def embed_documents(self, texts):
+        return self._embed(texts)
 
+    def embed_query(self, text):
+        return self._embed([text])[0]
+
+    def _embed(self, texts):
         embeddings = []
         for text in texts:
             response = self.client.invoke_model(
@@ -24,7 +27,6 @@ class BedrockEmbedding:
                 contentType="application/json",
                 accept="application/json",
             )
-            result = json.loads(response['body'].read())
-            embeddings.append(result['embedding'])
-
+            result = json.loads(response["body"].read())
+            embeddings.append(result["embedding"])
         return embeddings
